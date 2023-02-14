@@ -62,18 +62,6 @@ connectAccess <- function(file,
 }
 Conn<-connectAccess(file=db_path)
 
-
-
-# Just pastes driver info and file path together.
-full_path <- paste0(driver,"DBQ=",db_path)
-full_path
-# Connect to database using information above.
-conn <- odbcDriverConnect(full_path)
-
-names<-sqlTables(conn,tableType = c("TABLE","VIEW"))["TABLE_NAME"]
-
-
-
 extractTables <- function(con, tables, out) {
 
   # Pulling just the table names
